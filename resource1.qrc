@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>New folder/newaccount.htm</file>
+    </qresource>
+</RCC>
