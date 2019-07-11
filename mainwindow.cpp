@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    bool UsernameExists(const QString &Username);
 //    mydb=QSqlDatabase::addDatabase("QSQLITE");
 //     mydb.setDatabaseName("DJEB.db");
-     Dbase mydb("DJEB.db");
+     Dbase mydb("DJEB1.db");
      mydb.createTable();
      //  createTable();
        ui->stackedWidget->setCurrentIndex(0);
@@ -40,7 +40,7 @@ void MainWindow::on_pushButton_clicked()
 
 
 
-    Dbase mydb("DJEB.db");
+    Dbase mydb("DJEB1.db");
 
     QSqlQuery qry;
 
@@ -100,15 +100,14 @@ void MainWindow::on_pushButton_SignUp_clicked()
 
 void MainWindow::on_pushButton_CreateAcc_clicked()
 {
-    QString Username= ui->lineEdit_SUsername->text();
+    QString name= ui->username->text();
     QString Password= ui->lineEdit_SPassword->text();
     QString CPassword= ui->lineEdit_SCPassword->text();
-    Dbase mydb("DJEB.db");
-    qDebug()<<mydb.unameExists(Username);
+    Dbase mydb("DJEB1.db");
+    qDebug()<<mydb.unameExists(name);
 
 
-
-    if (mydb.unameExists(Username))
+    if (mydb.unameExists(name))
     {
         QMessageBox::warning(this,"Username","Username already exists.");
     }
@@ -118,8 +117,8 @@ void MainWindow::on_pushButton_CreateAcc_clicked()
     }
     else
     {
-       mydb.useradd(Username,Password);
-       mydb.afterLTable(Username);
+       mydb.useradd(name,Password);
+       mydb.afterLTable(name);
        QMessageBox::information(this,"Sign Up Info","Sign Up Successful");
        ui->stackedWidget->setCurrentIndex(0);
 

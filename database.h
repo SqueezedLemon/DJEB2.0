@@ -24,14 +24,18 @@ public:
 
     void adduser(const QString &Username,const QString &Password );
     void useradd(const QString Username,const QString Password );
+    bool dateExists(const QString &date);
+    void addDate(const QString date);
+    void addDJ(const QString Date,const QString journal );
+    QString viewDJ(const QString Date);
 
 
     bool removeUser(const QString& name);
 
 
-
+    bool UsernameExists(const QString &Username);
     bool emailExists(const QString& email);
-    bool unameExists(const QString uname);
+    bool unameExists(const QString &uname);
     bool passwordValid(const QString& passwd);
 
 

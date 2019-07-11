@@ -2,6 +2,8 @@
 #define CLIENTWIN_H
 
 #include <QMainWindow>
+#include<QDate>
+#include <QSignalMapper>
 
 namespace Ui {
 class ClientWin;
@@ -24,6 +26,18 @@ private slots:
     void on_pushButton_ChangePassword_clicked();
 
     void on_pushButton_Logout_clicked();
+
+    void on_dateEdit_DJView_userDateChanged(const QDate &date);
+
+    void on_dateEdit_EBEdit_userDateChanged(const QDate &date);
+
+    void on_dateEdit_EBView_userDateChanged(const QDate &date);
+
+    void on_dateEdit_DJEdit_userDateChanged(const QDate &date);
+
+    void on_pushButton_DJESave_clicked();
+
+    void on_tabWidget_2_tabBarClicked(int index);
 
 private:
     Ui::ClientWin *ui;
