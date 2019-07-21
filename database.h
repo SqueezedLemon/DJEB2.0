@@ -4,13 +4,16 @@
 
 #include <QSqlDatabase>
 #include<QList>
+#include <QTableView>
 
 
 class Dbase
 {
 public:
+      Dbase(const QString& path);
 
-    Dbase(const QString& path);
+
+ const QString GUsername;
 
 
     ~Dbase();
@@ -24,10 +27,12 @@ public:
 
     void adduser(const QString &Username,const QString &Password );
     void useradd(const QString Username,const QString Password );
-    bool dateExists(const QString &date);
+    bool dateExists( QString &date);
     void addDate(const QString date);
-    void addDJ(const QString Date,const QString journal );
+    void addDJ(const QString Date,const QString journal  );
     QString viewDJ(const QString Date);
+    QString viewEB(const QString Date, const QString Column );
+
 
 
     bool removeUser(const QString& name);
@@ -70,6 +75,9 @@ public:
 
 private:
     QSqlDatabase db;
+
+    Dbase *dbase;
+
 };
 
 

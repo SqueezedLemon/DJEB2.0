@@ -4,6 +4,7 @@
 #include <QSqlRecord>
 #include <QDebug>
 #include<QMessageBox>
+
 Dbase::Dbase(const QString &path)
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -87,8 +88,9 @@ void Dbase::afterLTable(const QString Username)
 
 }
 
-bool Dbase::dateExists(const QString &date){
+bool Dbase::dateExists( QString &date){
     QSqlQuery checkQuery;
+    qDebug()<<GUsername;
     checkQuery.prepare("SELECT Date FROM admin WHERE Date = (:date)");
     checkQuery.bindValue(":date",date);
     if(checkQuery.exec()){
@@ -105,7 +107,7 @@ void Dbase::addDate(const QString date)
 {
 
     QSqlQuery qry;
-    qry.prepare("INSERT INTO admin(Date) VALUES(:date)");
+    qry.prepare("INSERT INTO admin (Date) VALUES(:date)");
     qry.bindValue(":date",date);
 
 
@@ -129,8 +131,7 @@ void Dbase::addDJ(const QString Date,const QString journal ){
     }
 }
 
-QString Dbase::viewDJ(const QString Date){
-
+QString Dbase::viewDJ(const QString Date ){
     QSqlQuery qry;
     qry.prepare("SELECT DailyJournal FROM admin WHERE Date='"+Date+"' ");
 
@@ -147,3 +148,22 @@ QString Dbase::viewDJ(const QString Date){
     }
 }
 
+QString Dbase::viewEB(const QString Date , const QString Column){
+    QSqlQuery qry;
+    QString temp=Column;
+    qDebug()<<Column;
+    qry.prepare("SELECT * FROM admin WHERE Date='"+Date+"' ");
+//    qry.bindValue(":Column",Column);
+
+
+    if(!qry.exec()){
+        qDebug() << "viewing journal failed " << qry.lastError();
+    }else{
+        if (qry.next()){
+            int a=qry.record().indexOf(Column);
+            QString DJ= qry.value(a).toString();
+            qDebug() << a <<DJ<< qry.lastError();
+            return DJ;
+        }
+    }
+}

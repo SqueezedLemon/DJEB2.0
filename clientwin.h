@@ -4,6 +4,12 @@
 #include <QMainWindow>
 #include<QDate>
 #include <QSignalMapper>
+#include "database.h"
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlRecord>
+#include <QDebug>
+#include<QMessageBox>
 
 namespace Ui {
 class ClientWin;
@@ -16,6 +22,7 @@ class ClientWin : public QMainWindow
 
 public:
     explicit ClientWin(QWidget *parent = nullptr);
+
     ~ClientWin();
 
 private slots:
@@ -38,9 +45,16 @@ private slots:
     void on_pushButton_DJESave_clicked();
 
     void on_tabWidget_2_tabBarClicked(int index);
+    void setColumnHidden(int column, bool hide);
+
+    void on_pushButton_DJESave2_clicked();
+
+    void on_pushButton_7_clicked();
 
 private:
     Ui::ClientWin *ui;
+    const QString GUsername;
+
 };
 
 #endif // CLIENTWIN_H

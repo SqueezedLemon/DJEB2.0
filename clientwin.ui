@@ -32,43 +32,43 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1920</width>
-      <height>70</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 0);</string>
-    </property>
-   </widget>
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{border-image: url(:/resources/img/back2.jpg);}
+QPushButton
+{
+	border: 0px solid gray;
+	border-radius: 25px;
+	padding: 0 8px;
+	background: silver;
+}</string>
+   </property>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>1920</width>
-      <height>1010</height>
+      <x>440</x>
+      <y>60</y>
+      <width>991</width>
+      <height>851</height>
      </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
     <widget class="QWidget" name="daily_journal_page_0">
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>0</y>
-        <width>1920</width>
-        <height>1010</height>
+        <width>961</width>
+        <height>851</height>
        </rect>
       </property>
       <property name="tabShape">
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_DJView">
        <attribute name="title">
@@ -77,7 +77,7 @@
        <widget class="QDateEdit" name="dateEdit_DJView">
         <property name="geometry">
          <rect>
-          <x>960</x>
+          <x>400</x>
           <y>0</y>
           <width>161</width>
           <height>41</height>
@@ -87,10 +87,10 @@
        <widget class="QTextBrowser" name="textBrowser_DJView">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>0</x>
           <y>40</y>
-          <width>960</width>
-          <height>620</height>
+          <width>961</width>
+          <height>781</height>
          </rect>
         </property>
        </widget>
@@ -102,7 +102,7 @@
        <widget class="QDateEdit" name="dateEdit_DJEdit">
         <property name="geometry">
          <rect>
-          <x>960</x>
+          <x>410</x>
           <y>0</y>
           <width>161</width>
           <height>41</height>
@@ -112,24 +112,37 @@
        <widget class="QPlainTextEdit" name="plainTextEdit_DJEdit">
         <property name="geometry">
          <rect>
-          <x>560</x>
+          <x>0</x>
           <y>40</y>
           <width>960</width>
-          <height>620</height>
+          <height>720</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_DJESave2">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>770</y>
+          <width>181</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save Changes</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_DJESave">
         <property name="geometry">
          <rect>
-          <x>1550</x>
-          <y>760</y>
-          <width>131</width>
-          <height>41</height>
+          <x>510</x>
+          <y>770</y>
+          <width>191</width>
+          <height>51</height>
          </rect>
         </property>
         <property name="text">
-         <string>Save Changes</string>
+         <string>Save and View Changes</string>
         </property>
        </widget>
       </widget>
@@ -139,17 +152,17 @@
      <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>0</y>
-        <width>1920</width>
-        <height>1010</height>
+        <width>950</width>
+        <height>720</height>
        </rect>
       </property>
       <property name="tabShape">
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -158,10 +171,20 @@
        <widget class="QDateEdit" name="dateEdit_EBView">
         <property name="geometry">
          <rect>
-          <x>960</x>
-          <y>0</y>
+          <x>360</x>
+          <y>20</y>
           <width>161</width>
           <height>41</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tableView_EBV">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>70</y>
+          <width>841</width>
+          <height>131</height>
          </rect>
         </property>
        </widget>
@@ -173,88 +196,461 @@
        <widget class="QDateEdit" name="dateEdit_EBEdit">
         <property name="geometry">
          <rect>
-          <x>960</x>
+          <x>410</x>
           <y>0</y>
           <width>161</width>
           <height>41</height>
          </rect>
         </property>
        </widget>
+       <widget class="QGraphicsView" name="graphicsView_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>960</width>
+          <height>670</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Food">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>90</y>
+          <width>130</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Food</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Clothes">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>150</y>
+          <width>130</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Clothes</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Transport">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>210</y>
+          <width>130</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Transport</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Education">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>270</y>
+          <width>130</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Education</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_TBD1">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>330</y>
+          <width>130</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_TBD2">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>390</y>
+          <width>130</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_TBD3">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>450</y>
+          <width>130</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_TBD4">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>510</y>
+          <width>130</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_TBD5">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>570</y>
+          <width>130</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_TBD6">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>630</y>
+          <width>130</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Food">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>90</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Clothes">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>150</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Transport">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>210</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Education">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>270</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_TBD1">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>330</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_TBD2">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>390</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_TBD3">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>450</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_TBD4">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>510</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_TBD5">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>570</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_TBD6">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>630</y>
+          <width>130</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Expenses</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>670</y>
+          <width>71</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Ok</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Field">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>630</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Add New Field</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="ChangePassword">
-     <widget class="QWidget" name="layoutWidget">
+     <property name="styleSheet">
+      <string notr="true">QLineEdit
+{
+	border: 0px solid gray;
+	border-radius: 25px;
+	padding: 0 0px;
+	background: white;
+}</string>
+     </property>
+     <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>1480</x>
-        <y>0</y>
-        <width>321</width>
-        <height>201</height>
+        <x>360</x>
+        <y>70</y>
+        <width>331</width>
+        <height>141</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QPushButton" name="pushButton_3">
-           <property name="text">
-            <string>Old Password</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_5"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QPushButton" name="pushButton_4">
-           <property name="text">
-            <string>New Password</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_6"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QPushButton" name="pushButton_5">
-           <property name="text">
-            <string>Confirm Password</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_7"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_6">
-         <property name="text">
-          <string>Save Changes</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Change Your Password</string>
+      </property>
      </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>250</y>
+        <width>180</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Old Password</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>360</y>
+        <width>180</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>New Password</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>480</y>
+        <width>180</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Confirm New Passsword</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>590</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Change Password</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>0</y>
+        <width>441</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(157, 142, 27);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>label_3</zorder>
+     <zorder>pushButton_3</zorder>
+     <zorder>lineEdit</zorder>
+     <zorder>lineEdit_2</zorder>
+     <zorder>lineEdit_3</zorder>
+     <zorder>label_2</zorder>
     </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>93</width>
-      <height>28</height>
+      <x>10</x>
+      <y>50</y>
+      <width>200</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
     </property>
     <property name="text">
      <string>Daily Journal</string>
@@ -263,11 +659,27 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>40</y>
-      <width>111</width>
-      <height>28</height>
+      <x>10</x>
+      <y>240</y>
+      <width>200</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
     </property>
     <property name="text">
      <string>Expenditure Book</string>
@@ -276,11 +688,27 @@
    <widget class="QPushButton" name="pushButton_ChangePassword">
     <property name="geometry">
      <rect>
-      <x>1642</x>
-      <y>40</y>
-      <width>111</width>
-      <height>28</height>
+      <x>10</x>
+      <y>610</y>
+      <width>200</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
     </property>
     <property name="text">
      <string>Change Password</string>
@@ -289,16 +717,54 @@
    <widget class="QPushButton" name="pushButton_Logout">
     <property name="geometry">
      <rect>
-      <x>1820</x>
-      <y>40</y>
-      <width>93</width>
-      <height>28</height>
+      <x>10</x>
+      <y>920</y>
+      <width>200</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
     </property>
     <property name="text">
      <string>Logout</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>221</width>
+      <height>1051</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(33, 34, 88);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>stackedWidget</zorder>
+   <zorder>label</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_ChangePassword</zorder>
+   <zorder>pushButton_Logout</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

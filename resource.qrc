@@ -2,6 +2,10 @@
     <qresource prefix="/resources">
         <file>img/Background.png</file>
         <file>img/Backgound2.0.png</file>
+        <file>img/plain.jpg</file>
+        <file>img/back2.jpg</file>
+        <file>img/login face.png</file>
+        <file>img/head.png</file>
     </qresource>
     <qresource prefix="/">
         <file>resource1.qrc</file>

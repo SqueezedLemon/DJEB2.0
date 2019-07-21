@@ -35,11 +35,14 @@ private slots:
 
 
 
+    void on_pushButton_CreateAcc_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase mydb;
     ClientWin *clientwin;
     bool createTable();
+
 };
 
 #endif // MAINWINDOW_H

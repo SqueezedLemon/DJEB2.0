@@ -11,11 +11,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    this->setWindowTitle("DJEB");
 //    bool UsernameExists(const QString &Username);
 //    mydb=QSqlDatabase::addDatabase("QSQLITE");
 //     mydb.setDatabaseName("DJEB.db");
-     Dbase mydb("DJEB1.db");
-     mydb.createTable();
+        Dbase mydb("DJEB1.db");
+        mydb.createTable();
      //  createTable();
        ui->stackedWidget->setCurrentIndex(0);
 //     createTable();
@@ -36,6 +37,7 @@ void MainWindow::on_pushButton_clicked()
 
     QString Username,Password;
     Username=ui->lineEdit_Username->text();
+
     Password=ui->lineEdit_Password->text();
 
 
@@ -50,11 +52,13 @@ void MainWindow::on_pushButton_clicked()
        if(qry.next())
            {
 
-
+           Dbase dbase(Username);
             qDebug()<<"username and password is correct";
             this->close();
             clientwin = new ClientWin(this);
+           // dbase=new Dbase(Username);
             clientwin->show();
+
         }
        else{
 
@@ -123,4 +127,10 @@ void MainWindow::on_pushButton_CreateAcc_clicked()
        ui->stackedWidget->setCurrentIndex(0);
 
     }
+}
+
+
+void MainWindow::on_pushButton_CreateAcc_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
