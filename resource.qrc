@@ -6,6 +6,7 @@
         <file>img/back2.jpg</file>
         <file>img/login face.png</file>
         <file>img/head.png</file>
+        <file>img/1.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>resource1.qrc</file>

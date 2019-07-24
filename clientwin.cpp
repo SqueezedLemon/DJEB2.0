@@ -22,18 +22,85 @@ ClientWin::ClientWin(QWidget *parent) :
     ui->dateEdit_DJEdit->setDate(QDate::currentDate());
     ui->dateEdit_EBView->setDate(QDate::currentDate());
     ui->dateEdit_EBEdit->setDate(QDate::currentDate());
-    ui->lineEdit_TBD1->setVisible(false);
-    ui->lineEdit_TBD2->setVisible(false);
-    ui->lineEdit_TBD3->setVisible(false);
-    ui->lineEdit_TBD4->setVisible(false);
-    ui->lineEdit_TBD5->setVisible(false);
-    ui->lineEdit_TBD6->setVisible(false);
-    ui->label_TBD1->setVisible(false);
-    ui->label_TBD2->setVisible(false);
-    ui->label_TBD3->setVisible(false);
-    ui->label_TBD4->setVisible(false);
-    ui->label_TBD5->setVisible(false);
-    ui->label_TBD6->setVisible(false);
+    Dbase mydb("DJEB1.db");
+    QString A= mydb.getField("TBD1");
+    if (A=="")
+        {
+            ui->lineEdit_TBD1->setVisible(false);
+            ui->label_TBD1->setVisible(false);
+        }
+    else
+        {
+            ui->label_TBD1->setText(A);
+            ui->label_TBD1->setVisible(true);
+            ui->lineEdit_TBD1->setVisible(true);
+        }
+
+        QString B= mydb.getField("TBD2");
+        if (B=="")
+        {
+            ui->lineEdit_TBD2->setVisible(false);
+            ui->label_TBD2->setVisible(false);
+        }
+        else
+        {
+            ui->label_TBD2->setText(B);
+            ui->label_TBD2->setVisible(true);
+            ui->lineEdit_TBD2->setVisible(true);
+        }
+
+        QString C= mydb.getField("TBD3");
+        if (C=="")
+        {
+            ui->lineEdit_TBD3->setVisible(false);
+            ui->label_TBD3->setVisible(false);
+        }
+        else
+        {
+            ui->label_TBD3->setText(C);
+            ui->label_TBD3->setVisible(true);
+            ui->lineEdit_TBD3->setVisible(true);
+        }
+
+        QString D= mydb.getField("TBD4");
+        if (D=="")
+        {
+            ui->lineEdit_TBD4->setVisible(false);
+            ui->label_TBD4->setVisible(false);
+        }
+        else
+        {
+            ui->label_TBD4->setText(D);
+            ui->label_TBD4->setVisible(true);
+            ui->lineEdit_TBD4->setVisible(true);
+        }
+
+        QString E= mydb.getField("TBD5");
+        if (E=="")
+        {
+            ui->lineEdit_TBD5->setVisible(false);
+            ui->label_TBD5->setVisible(false);
+        }
+        else
+        {
+            ui->label_TBD5->setText(E);
+            ui->label_TBD5->setVisible(true);
+            ui->lineEdit_TBD5->setVisible(true);
+        }
+
+        QString F= mydb.getField("TBD6");
+        if (F=="")
+        {
+            ui->lineEdit_TBD6->setVisible(false);
+            ui->label_TBD6->setVisible(false);
+        }
+        else
+        {
+            ui->label_TBD6->setText(B);
+            ui->label_TBD6->setVisible(true);
+            ui->lineEdit_TBD6->setVisible(true);
+        }
+
 
 
 //    QSignalMapper *signal = new QSignalMapper(this);

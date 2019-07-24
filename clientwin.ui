@@ -52,7 +52,7 @@ QPushButton
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="daily_journal_page_0">
      <widget class="QTabWidget" name="tabWidget_2">
@@ -613,7 +613,7 @@ QPushButton
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(157, 142, 27);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>

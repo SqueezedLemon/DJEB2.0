@@ -32,6 +32,7 @@ public:
     void addDJ(const QString Date,const QString journal  );
     QString viewDJ(const QString Date);
     QString viewEB(const QString Date, const QString Column );
+    QString getField(const QString TBD );
 
 
 

@@ -167,3 +167,21 @@ QString Dbase::viewEB(const QString Date , const QString Column){
         }
     }
 }
+
+QString Dbase::getField(const QString TBD)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM ExpensesField");
+
+
+    if(!qry.exec()){
+        qDebug() << "failed " << qry.lastError();
+    }else{
+        if (qry.next()){
+            int a=qry.record().indexOf(TBD);
+            QString DJ= qry.value(a).toString();
+            qDebug() <<DJ<< qry.lastError();
+            return DJ;
+        }
+    }
+}
