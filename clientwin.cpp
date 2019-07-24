@@ -171,6 +171,57 @@ void ClientWin::on_dateEdit_EBEdit_userDateChanged(const QDate &date)
     }
     QString Food=mydb.viewEB(GDate,"Food");
     ui->lineEdit_Food->setText(Food);
+
+    QString Clothes=mydb.viewEB(GDate,"Clothes");
+    ui->lineEdit_Clothes->setText(Clothes);
+
+    QString Transport=mydb.viewEB(GDate,"Transport");
+    ui->lineEdit_Transport->setText(Transport);
+
+    QString Education=mydb.viewEB(GDate,"Education");
+    ui->lineEdit_Education->setText(Education);
+
+    if (!mydb.fieldExists("TBD1"))
+    {
+        QString EC=mydb.getField("TBD1");
+        QString E=mydb.getExpense(EC,GDate);
+        ui->lineEdit_TBD1->setText(E);
+    }
+
+    if (!mydb.fieldExists("TBD2"))
+    {
+        QString FC=mydb.getField("TBD2");
+        QString F=mydb.getExpense(FC,GDate);
+        ui->lineEdit_TBD2->setText(F);
+    }
+
+    if (!mydb.fieldExists("TBD3"))
+    {
+        QString GC=mydb.getField("TBD3");
+        QString G=mydb.getExpense(GC,GDate);
+        ui->lineEdit_TBD3->setText(G);
+    }
+
+    if (!mydb.fieldExists("TBD4"))
+    {
+        QString HC=mydb.getField("TBD4");
+        QString H=mydb.getExpense(HC,GDate);
+        ui->lineEdit_TBD4->setText(H);
+    }
+
+    if (!mydb.fieldExists("TBD5"))
+    {
+        QString IC=mydb.getField("TBD5");
+        QString I=mydb.getExpense(IC,GDate);
+        ui->lineEdit_TBD5->setText(I);
+    }
+
+    if (!mydb.fieldExists("TBD6"))
+    {
+        QString JC=mydb.getField("TBD6");
+        QString J=mydb.getExpense(JC,GDate);
+        ui->lineEdit_TBD6->setText(J);
+    }
 }
 
 
@@ -218,6 +269,8 @@ void ClientWin::on_dateEdit_DJEdit_userDateChanged(const QDate &date)
     QString DJ=mydb.viewDJ(Date);
     qDebug()<<DJ;
     ui->plainTextEdit_DJEdit->setPlainText(DJ);
+
+
 }
 
 void ClientWin::on_pushButton_DJESave_clicked()
@@ -387,5 +440,96 @@ void ClientWin::on_pushButton_EBSave_clicked()
         int Ji=J.toInt();
         mydb.addExpense(GDate,Ji,JC);
     }
+        QMessageBox::information(this,"Changes Saved","Changes Saved Successfully.");
 
+    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM admin WHERE Date='"+GDate+"'");
+    qry.exec();
+    model->setQuery(qry);
+    ui->tableView_EBV->setModel(model);
+    ui->tableView_EBV->setColumnHidden(0,true);
+    ui->tableView_EBV->setColumnHidden(1,true);
+
+}
+
+void ClientWin::on_pushButton_EBSaveV_clicked()
+{
+    Dbase mydb("DJEB1.db");
+    QString A= ui->lineEdit_Food->text();
+    int Ai=A.toInt();
+    mydb.addExpense(GDate,Ai,"Food");
+
+    QString B= ui->lineEdit_Clothes->text();
+    int Bi=B.toInt();
+    mydb.addExpense(GDate,Bi,"Clothes");
+
+    QString C= ui->lineEdit_Transport->text();
+    int Ci=C.toInt();
+    mydb.addExpense(GDate,Ci,"Transport");
+
+    QString D= ui->lineEdit_Education->text();
+    int Di=D.toInt();
+    mydb.addExpense(GDate,Di,"Education");
+
+    if (!mydb.fieldExists("TBD1"))
+    {
+        QString EC=mydb.getField("TBD1");
+        QString E= ui->lineEdit_TBD1->text();
+        int Ei=E.toInt();
+        mydb.addExpense(GDate,Ei,EC);
+    }
+
+    if (!mydb.fieldExists("TBD2"))
+    {
+        QString FC=mydb.getField("TBD2");
+        QString F= ui->lineEdit_TBD2->text();
+        int Fi=F.toInt();
+        mydb.addExpense(GDate,Fi,FC);
+    }
+
+    if (!mydb.fieldExists("TBD3"))
+    {
+        QString GC=mydb.getField("TBD3");
+        QString G= ui->lineEdit_TBD3->text();
+        int Gi=G.toInt();
+        mydb.addExpense(GDate,Gi,GC);
+    }
+
+    if (!mydb.fieldExists("TBD4"))
+    {
+        QString HC=mydb.getField("TBD4");
+        QString H= ui->lineEdit_TBD4->text();
+        int Hi=H.toInt();
+        mydb.addExpense(GDate,Hi,HC);
+    }
+
+    if (!mydb.fieldExists("TBD5"))
+    {
+        QString IC=mydb.getField("TBD5");
+        QString I= ui->lineEdit_TBD5->text();
+        int Ii=I.toInt();
+        mydb.addExpense(GDate,Ii,IC);
+    }
+
+    if (!mydb.fieldExists("TBD6"))
+    {
+        QString JC=mydb.getField("TBD6");
+        QString J= ui->lineEdit_TBD6->text();
+        int Ji=J.toInt();
+        mydb.addExpense(GDate,Ji,JC);
+    }
+    QMessageBox::information(this,"Changes Saved","Changes Saved Successfully.");
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM admin WHERE Date='"+GDate+"'");
+    qry.exec();
+    model->setQuery(qry);
+    ui->tableView_EBV->setModel(model);
+    ui->tableView_EBV->setColumnHidden(0,true);
+    ui->tableView_EBV->setColumnHidden(1,true);
+
+    ui->tabWidget->setCurrentIndex(0);
+    ui->dateEdit_EBView->setDate(Gdate);
 }

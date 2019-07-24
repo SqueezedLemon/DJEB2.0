@@ -246,3 +246,20 @@ bool Dbase::fieldExists( QString TBD)
     return false;
 }
 
+QString Dbase::getExpense(const QString TBD, const QString Date)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM admin WHERE Date='"+Date+"'");
+
+
+    if(!qry.exec()){
+        qDebug() << "failed " << qry.lastError();
+    }else{
+        if (qry.next()){
+            int a=qry.record().indexOf(TBD);
+            QString DJ= qry.value(a).toString();
+            qDebug() <<DJ<< qry.lastError();
+            return DJ;
+        }
+    }
+}
