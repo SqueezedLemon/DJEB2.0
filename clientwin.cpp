@@ -101,10 +101,9 @@ ClientWin::ClientWin(QWidget *parent) :
             ui->lineEdit_TBD6->setVisible(true);
         }
 
+connect(ui->lineEdit_Field, SIGNAL(returnPressed()),ui->pushButton_7,SIGNAL(clicked()));
 
 
-//    QSignalMapper *signal = new QSignalMapper(this);
-//    connect(ui->tab_DJView, SIGNAL(clicked()),signal,);
 }
 
 ClientWin::~ClientWin()
@@ -246,6 +245,7 @@ void ClientWin::on_pushButton_DJESave2_clicked()
 
 void ClientWin::on_pushButton_7_clicked()
 {
+    Dbase mydb("DJEB1.db");
     QString TBD1=ui->label_TBD1->text();
     QString TBD2=ui->label_TBD2->text();
     QString TBD3=ui->label_TBD3->text();
@@ -253,11 +253,16 @@ void ClientWin::on_pushButton_7_clicked()
     QString TBD5=ui->label_TBD5->text();
     QString TBD6=ui->label_TBD6->text();
     QString Field=ui->lineEdit_Field->text();
+    ui->lineEdit_Field->setText("");
+
     if (TBD1=="")
     {
      ui->label_TBD1->setText(Field);
     ui->label_TBD1->setVisible(true);
     ui->lineEdit_TBD1->setVisible(true);
+    mydb.addField("TBD1",Field);
+    mydb.addColumn(Field);
+    ui->dateEdit_EBView->setDate(Gdate);
     }
 
     else if (TBD2=="")
@@ -265,6 +270,9 @@ void ClientWin::on_pushButton_7_clicked()
      ui->label_TBD2->setText(Field);
         ui->label_TBD2->setVisible(true);
         ui->lineEdit_TBD2->setVisible(true);
+        mydb.addField("TBD2",Field);
+        mydb.addColumn(Field);
+        ui->dateEdit_EBView->setDate(Gdate);
     }
 
     else if (TBD3=="")
@@ -272,6 +280,9 @@ void ClientWin::on_pushButton_7_clicked()
      ui->label_TBD3->setText(Field);
         ui->label_TBD3->setVisible(true);
         ui->lineEdit_TBD3->setVisible(true);
+        mydb.addField("TBD3",Field);
+        mydb.addColumn(Field);
+        ui->dateEdit_EBView->setDate(Gdate);
     }
 
     else if (TBD4=="")
@@ -279,6 +290,9 @@ void ClientWin::on_pushButton_7_clicked()
      ui->label_TBD4->setText(Field);
         ui->label_TBD4->setVisible(true);
         ui->lineEdit_TBD4->setVisible(true);
+        mydb.addField("TBD4",Field);
+        mydb.addColumn(Field);
+        ui->dateEdit_EBView->setDate(Gdate);
     }
 
     else if (TBD5=="")
@@ -286,6 +300,9 @@ void ClientWin::on_pushButton_7_clicked()
      ui->label_TBD5->setText(Field);
         ui->label_TBD5->setVisible(true);
         ui->lineEdit_TBD5->setVisible(true);
+        mydb.addField("TBD5",Field);
+        mydb.addColumn(Field);
+        ui->dateEdit_EBView->setDate(Gdate);
     }
 
     else if (TBD6=="")
@@ -293,10 +310,82 @@ void ClientWin::on_pushButton_7_clicked()
      ui->label_TBD6->setText(Field);
         ui->label_TBD6->setVisible(true);
         ui->lineEdit_TBD6->setVisible(true);
+        mydb.addField("TBD6",Field);
+        mydb.addColumn(Field);
+        ui->dateEdit_EBView->setDate(Gdate);
     }
 
     else
     {
         QMessageBox::warning(this,"Max Field","Field Limit Reached");
     }
+}
+
+void ClientWin::on_pushButton_EBSave_clicked()
+{
+    Dbase mydb("DJEB1.db");
+    QString A= ui->lineEdit_Food->text();
+    int Ai=A.toInt();
+    mydb.addExpense(GDate,Ai,"Food");
+
+    QString B= ui->lineEdit_Clothes->text();
+    int Bi=B.toInt();
+    mydb.addExpense(GDate,Bi,"Clothes");
+
+    QString C= ui->lineEdit_Transport->text();
+    int Ci=C.toInt();
+    mydb.addExpense(GDate,Ci,"Transport");
+
+    QString D= ui->lineEdit_Education->text();
+    int Di=D.toInt();
+    mydb.addExpense(GDate,Di,"Education");
+
+    if (!mydb.fieldExists("TBD1"))
+    {
+        QString EC=mydb.getField("TBD1");
+        QString E= ui->lineEdit_TBD1->text();
+        int Ei=E.toInt();
+        mydb.addExpense(GDate,Ei,EC);
+    }
+
+    if (!mydb.fieldExists("TBD2"))
+    {
+        QString FC=mydb.getField("TBD2");
+        QString F= ui->lineEdit_TBD2->text();
+        int Fi=F.toInt();
+        mydb.addExpense(GDate,Fi,FC);
+    }
+
+    if (!mydb.fieldExists("TBD3"))
+    {
+        QString GC=mydb.getField("TBD3");
+        QString G= ui->lineEdit_TBD3->text();
+        int Gi=G.toInt();
+        mydb.addExpense(GDate,Gi,GC);
+    }
+
+    if (!mydb.fieldExists("TBD4"))
+    {
+        QString HC=mydb.getField("TBD4");
+        QString H= ui->lineEdit_TBD4->text();
+        int Hi=H.toInt();
+        mydb.addExpense(GDate,Hi,HC);
+    }
+
+    if (!mydb.fieldExists("TBD5"))
+    {
+        QString IC=mydb.getField("TBD5");
+        QString I= ui->lineEdit_TBD5->text();
+        int Ii=I.toInt();
+        mydb.addExpense(GDate,Ii,IC);
+    }
+
+    if (!mydb.fieldExists("TBD6"))
+    {
+        QString JC=mydb.getField("TBD6");
+        QString J= ui->lineEdit_TBD6->text();
+        int Ji=J.toInt();
+        mydb.addExpense(GDate,Ji,JC);
+    }
+
 }

@@ -185,3 +185,64 @@ QString Dbase::getField(const QString TBD)
         }
     }
 }
+
+void Dbase::addField(const QString TBD,const QString Field)
+{
+
+    QSqlQuery qry;
+    qry.prepare("UPDATE ExpensesField SET '"+TBD+"'=:tbd ");
+    qry.bindValue(":tbd",Field);
+
+    if(!qry.exec()){
+        qDebug() << " failed. " << qry.lastError();
+    }else{
+        qDebug() << "journal added. " << qry.lastError();
+    }
+}
+
+void Dbase::addColumn(const QString Column)
+{
+
+    QSqlQuery qry;
+    qry.prepare("ALTER TABLE admin ADD COLUMN '"+Column+"' INTEGER ");
+
+    if(!qry.exec()){
+        qDebug() << " failed. " << qry.lastError();
+    }else{
+        qDebug() << "column added. " << qry.lastError();
+    }
+}
+
+void Dbase::addExpense(const QString Date,const int Expense,const QString Field)
+{
+
+    QSqlQuery qry;
+    qry.prepare("UPDATE admin SET '"+Field+"'=:food WHERE Date='"+Date+"' ");
+    qry.bindValue(":food",Expense);
+
+    if(!qry.exec()){
+        qDebug() << " failed. " << qry.lastError();
+    }else{
+        qDebug() << "expense added. " << qry.lastError();
+    }
+}
+
+bool Dbase::fieldExists( QString TBD)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM ExpensesField)");
+    if(qry.exec()){
+        if(qry.next()){
+            int a=qry.record().indexOf(TBD);
+            QString DJ= qry.value(a).toString();
+            if (DJ=="")
+                return true;
+
+
+        }
+    }else{
+        qDebug()<<"date doesn't exist. "<<qry.lastError();
+    }
+    return false;
+}
+

@@ -33,6 +33,10 @@ public:
     QString viewDJ(const QString Date);
     QString viewEB(const QString Date, const QString Column );
     QString getField(const QString TBD );
+    void addField(const QString TBD,const QString Field);
+    void addColumn(const QString TBD);
+    void addExpense(const QString Date,const int Expense,const QString Field);
+    bool fieldExists( QString TBD);
 
 
 

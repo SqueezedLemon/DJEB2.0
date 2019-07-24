@@ -51,6 +51,8 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_pushButton_EBSave_clicked();
+
 private:
     Ui::ClientWin *ui;
     const QString GUsername;
