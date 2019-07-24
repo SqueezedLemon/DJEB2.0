@@ -162,7 +162,7 @@ QPushButton
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -184,8 +184,48 @@ QPushButton
           <x>40</x>
           <y>70</y>
           <width>841</width>
-          <height>131</height>
+          <height>91</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>280</y>
+          <width>221</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Total Expenses:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Total">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>280</y>
+          <width>221</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

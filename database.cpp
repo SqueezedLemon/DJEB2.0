@@ -263,3 +263,9 @@ QString Dbase::getExpense(const QString TBD, const QString Date)
         }
     }
 }
+
+
+
+
+
+

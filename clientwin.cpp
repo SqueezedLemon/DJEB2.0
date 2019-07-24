@@ -249,8 +249,66 @@ void ClientWin::on_dateEdit_EBView_userDateChanged(const QDate &date)
     ui->tableView_EBV->setModel(model);
     ui->tableView_EBV->setColumnHidden(0,true);
     ui->tableView_EBV->setColumnHidden(1,true);
-}
 
+    int AT,BT,CT,DT,ET,FT,GT,HT,IT,JT;
+
+    QString Food=mydb.viewEB(GDate,"Food");
+    AT=Food.toInt();
+
+    QString Clothes=mydb.viewEB(GDate,"Clothes");
+     BT=Clothes.toInt();
+
+    QString Transport=mydb.viewEB(GDate,"Transport");
+     CT=Transport.toInt();
+
+    QString Education=mydb.viewEB(GDate,"Education");
+     DT=Education.toInt();
+
+    if (!mydb.fieldExists("TBD1"))
+    {
+        QString EC=mydb.getField("TBD1");
+        QString E=mydb.getExpense(EC,GDate);
+         ET=E.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD2"))
+    {
+        QString FC=mydb.getField("TBD2");
+        QString F=mydb.getExpense(FC,GDate);
+         FT=F.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD3"))
+    {
+        QString GC=mydb.getField("TBD3");
+        QString G=mydb.getExpense(GC,GDate);
+         GT=G.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD4"))
+    {
+        QString HC=mydb.getField("TBD4");
+        QString H=mydb.getExpense(HC,GDate);
+         HT=H.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD5"))
+    {
+        QString IC=mydb.getField("TBD5");
+        QString I=mydb.getExpense(IC,GDate);
+         IT=I.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD6"))
+    {
+        QString JC=mydb.getField("TBD6");
+        QString J=mydb.getExpense(JC,GDate);
+         JT=J.toInt();
+    }
+    int Total=AT+BT+CT+DT+ET+FT+GT+HT+IT+JT;
+    ui->label_Total->setNum(Total);
+
+}
 
 
 void ClientWin::on_dateEdit_DJEdit_userDateChanged(const QDate &date)
@@ -451,6 +509,65 @@ void ClientWin::on_pushButton_EBSave_clicked()
     ui->tableView_EBV->setColumnHidden(0,true);
     ui->tableView_EBV->setColumnHidden(1,true);
 
+    int AT,BT,CT,DT,ET,FT,GT,HT,IT,JT;
+
+    QString Food=mydb.viewEB(GDate,"Food");
+    AT=Food.toInt();
+
+    QString Clothes=mydb.viewEB(GDate,"Clothes");
+    BT=Clothes.toInt();
+
+    QString Transport=mydb.viewEB(GDate,"Transport");
+    CT=Transport.toInt();
+
+    QString Education=mydb.viewEB(GDate,"Education");
+    DT=Education.toInt();
+
+    if (!mydb.fieldExists("TBD1"))
+    {
+        QString EC=mydb.getField("TBD1");
+        QString E=mydb.getExpense(EC,GDate);
+        ET=E.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD2"))
+    {
+        QString FC=mydb.getField("TBD2");
+        QString F=mydb.getExpense(FC,GDate);
+        FT=F.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD3"))
+    {
+        QString GC=mydb.getField("TBD3");
+        QString G=mydb.getExpense(GC,GDate);
+        GT=G.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD4"))
+    {
+        QString HC=mydb.getField("TBD4");
+        QString H=mydb.getExpense(HC,GDate);
+        HT=H.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD5"))
+    {
+        QString IC=mydb.getField("TBD5");
+        QString I=mydb.getExpense(IC,GDate);
+        IT=I.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD6"))
+    {
+        QString JC=mydb.getField("TBD6");
+        QString J=mydb.getExpense(JC,GDate);
+        JT=J.toInt();
+    }
+    int Total=AT+BT+CT+DT+ET+FT+GT+HT+IT+JT;
+    ui->label_Total->setNum(Total);
+
+
 }
 
 void ClientWin::on_pushButton_EBSaveV_clicked()
@@ -529,6 +646,64 @@ void ClientWin::on_pushButton_EBSaveV_clicked()
     ui->tableView_EBV->setModel(model);
     ui->tableView_EBV->setColumnHidden(0,true);
     ui->tableView_EBV->setColumnHidden(1,true);
+
+    int AT,BT,CT,DT,ET,FT,GT,HT,IT,JT;
+
+    QString Food=mydb.viewEB(GDate,"Food");
+    AT=Food.toInt();
+
+    QString Clothes=mydb.viewEB(GDate,"Clothes");
+    BT=Clothes.toInt();
+
+    QString Transport=mydb.viewEB(GDate,"Transport");
+    CT=Transport.toInt();
+
+    QString Education=mydb.viewEB(GDate,"Education");
+    DT=Education.toInt();
+
+    if (!mydb.fieldExists("TBD1"))
+    {
+        QString EC=mydb.getField("TBD1");
+        QString E=mydb.getExpense(EC,GDate);
+        ET=E.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD2"))
+    {
+        QString FC=mydb.getField("TBD2");
+        QString F=mydb.getExpense(FC,GDate);
+        FT=F.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD3"))
+    {
+        QString GC=mydb.getField("TBD3");
+        QString G=mydb.getExpense(GC,GDate);
+        GT=G.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD4"))
+    {
+        QString HC=mydb.getField("TBD4");
+        QString H=mydb.getExpense(HC,GDate);
+        HT=H.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD5"))
+    {
+        QString IC=mydb.getField("TBD5");
+        QString I=mydb.getExpense(IC,GDate);
+        IT=I.toInt();
+    }
+
+    if (!mydb.fieldExists("TBD6"))
+    {
+        QString JC=mydb.getField("TBD6");
+        QString J=mydb.getExpense(JC,GDate);
+        JT=J.toInt();
+    }
+    int Total=AT+BT+CT+DT+ET+FT+GT+HT+IT+JT;
+    ui->label_Total->setNum(Total);
 
     ui->tabWidget->setCurrentIndex(0);
     ui->dateEdit_EBView->setDate(Gdate);

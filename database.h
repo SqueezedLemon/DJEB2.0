@@ -38,6 +38,7 @@ public:
     void addExpense(const QString Date,const int Expense,const QString Field);
     bool fieldExists( QString TBD);
     QString getExpense(const QString TBD,const QString Date);
+    int getTotalExpense( const QString Date);
 
 
 
