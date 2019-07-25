@@ -39,6 +39,9 @@ public:
     bool fieldExists( QString TBD);
     QString getExpense(const QString TBD,const QString Date);
     int getTotalExpense( const QString Date);
+    QString getPass();
+    void changePassword(const QString pass);
+
 
 
 
@@ -57,7 +60,7 @@ public:
 
 
 
-    bool userAuth(const QString& uname, const QString& pass) const;
+    bool userAuth( const QString& uname, const QString& pass) const;
 
 
     QList<QString> getAdminInfo(const QString& uname);

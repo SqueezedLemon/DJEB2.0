@@ -266,6 +266,22 @@ QString Dbase::getExpense(const QString TBD, const QString Date)
 
 
 
+void Dbase::changePassword(const QString pass)
+{
+
+    QSqlQuery qry;
+    qry.prepare("UPDATE Login SET Password=:pass");
+    qry.bindValue(":pass",pass);
+
+    if(!qry.exec()){
+        qDebug() << "failed. " << qry.lastError();
+    }else{
+        qDebug() << "Password Changed" << qry.lastError();
+    }
+}
+
+
+
 
 
 

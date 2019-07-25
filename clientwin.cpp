@@ -708,3 +708,31 @@ void ClientWin::on_pushButton_EBSaveV_clicked()
     ui->tabWidget->setCurrentIndex(0);
     ui->dateEdit_EBView->setDate(Gdate);
 }
+
+void ClientWin::on_pushButton_3_clicked()
+{
+    Dbase mydb("DJEB1.db");
+    QString Old,New,CNew,DOld;
+    Old= ui->lineEdit->text();
+    New= ui->lineEdit_2->text();
+    CNew= ui->lineEdit_3->text();
+
+    QSqlQuery qry;
+
+    if(qry.exec("select * from Login where  Password='"+Old+"'"))
+    {
+        if (New==CNew)
+        {
+        if(qry.next())
+        {
+            mydb.changePassword(New);
+            QMessageBox::information(this,"Password","Password Changed Succesfully.");
+        }
+        }
+    }
+    else
+    {
+        QMessageBox::warning(this,"Warning","Password Mismatch.");
+    }
+
+}

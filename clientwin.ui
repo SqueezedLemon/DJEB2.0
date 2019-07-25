@@ -52,7 +52,7 @@ QPushButton
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="daily_journal_page_0">
      <widget class="QTabWidget" name="tabWidget_2">
@@ -63,6 +63,11 @@ QPushButton
         <width>961</width>
         <height>851</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="tabShape">
        <enum>QTabWidget::Triangular</enum>
@@ -93,6 +98,11 @@ QPushButton
           <height>781</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_DJEdit">
@@ -118,6 +128,11 @@ QPushButton
           <height>720</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
        </widget>
        <widget class="QPushButton" name="pushButton_DJESave2">
         <property name="geometry">
@@ -137,7 +152,7 @@ QPushButton
          <rect>
           <x>510</x>
           <y>770</y>
-          <width>191</width>
+          <width>231</width>
           <height>51</height>
          </rect>
         </property>
@@ -614,6 +629,9 @@ QPushButton
         <height>51</height>
        </rect>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -633,6 +651,9 @@ QPushButton
       <property name="text">
        <string/>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -651,6 +672,9 @@ QPushButton
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
